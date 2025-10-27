@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer>
+         function getComputerChoice(){
+            const choices = ['rock', 'paper', 'scissors'];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
+         }
+
+          function getHumanChoice(){
+            let userInput = prompt("Do you choose rock, paper or scissors?");
+            if (userInput === null) return null;
+            userInput = userInput.toLowerCase().trim();
+            while(userInput !== 'rock' && userInput !== 'paper' && userInput !== 'scissors'){
+                userInput = prompt("Invalid choice. Please choose rock, paper or scissors.");
+                if (userInput === null) return null;
+                userInput = userInput.toLowerCase().trim();
+            }
+            return userInput;
+          }
+
+            let humanScore = 0;
+            let computerScore = 0;
+
+           function playRound(){
+            let humanSelection = getHumanChoice();
+            if (humanSelection === null) return "game cancelled";
+            let computerSelection = getComputerChoice();
+
+            if (humanSelection === computerSelection){
+                return "it's a tie";
+            }
+            else if ((humanSelection === "rock" && computerSelection === "scissors") || (humanSelection === "paper" && computerSelection === "rock") || (humanSelection === "scissors" && computerSelection === "paper")){
+
+                humanScore++;
+                return "human wins this round";
+            }
+            else {
+                computerScore++;
+                return "computer wins this round";
+            }
+
+           }
+
+          function game(){
+            for (let i=0; i<5; i++){
+                const result = playRound();
+                console.log(result);
+                if (result === "game cancelled") return "game cancelled by user";
+            }
+            if (humanScore > computerScore){
+                return "human wins the game";
+            }
+            else if (computerScore > humanScore){
+                return "computer wins the game";
+            }
+            else {
+                return "the game is a tie";
+            }
+          } 
+            console.log(game());
+
+    </script>
+</head>
+<body>
+</body>
+</html>
