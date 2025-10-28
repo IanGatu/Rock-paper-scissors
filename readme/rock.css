@@ -1,0 +1,16 @@
+  .choice {
+      font-size: 24px;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: rgb(44, 221, 44);
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      margin-left: 10px;
+    }
